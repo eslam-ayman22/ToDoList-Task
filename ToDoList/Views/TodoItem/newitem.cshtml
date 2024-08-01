@@ -1,0 +1,25 @@
+﻿@model Item
+
+<div class="container mt-5">
+    <h1>CreateNew</h1>
+    <h4>ListItem</h4>
+    <hr>
+    <form action="/TodoItem/newitem" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="Title" placeholder="Enter name" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="Description" placeholder="Enter description" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="deadline">Deadline</label>
+            <input type="datetime-local" class="form-control" name="Deadlline" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-outline-secondary">Create</button>
+    </form>
+</div>
