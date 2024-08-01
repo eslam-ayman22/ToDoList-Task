@@ -66,7 +66,7 @@ namespace ToDoList.Controllers
             }
             else
             {
-                return NotFound();
+                return RedirectToAction("Notfound", "Home");
             }
         }
     }
