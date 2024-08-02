@@ -1,6 +1,6 @@
 ﻿@model List<Item>
 
-<h1>Welcome, </h1>
+<h1>Welcome, @ViewBag.UserName</h1>
 <p>Here is your to-do list</p>
 
 @if (TempData["createnew"] != null)
@@ -16,6 +16,7 @@
         @TempData["update"]
     </div>
 }
+
 
 <a href="/TodoItem/newitem" class="btn btn-outline-secondary">Create New</a>
 <br>

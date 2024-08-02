@@ -8,6 +8,16 @@ namespace ToDoList.Controllers
     {
         ApplicationDbContext context = new ApplicationDbContext();
 
+        /* To save name and store it in a cookie (1 day). */
+        public IActionResult SaveName(string userName)
+        {       
+                CookieOptions options = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(1) 
+                };
+                Response.Cookies.Append("UserName", userName, options);
+                return RedirectToAction("Index");
+        }
         /* createNew To do item page*/
         public IActionResult Create()
         {
@@ -33,7 +43,8 @@ namespace ToDoList.Controllers
         /*to Show the list of item*/
         public IActionResult Index() 
         {
-            
+            string userName = Request.Cookies["UserName"];
+            ViewBag.UserName = userName;
             var result= context.Items.ToList();
             return View(result);
         }
